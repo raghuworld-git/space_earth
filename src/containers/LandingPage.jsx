@@ -1,9 +1,10 @@
-import { MDBCol, MDBContainer, MDBRow, MDBTypography } from 'mdbreact';
+import { MDBCol, MDBContainer, MDBRow } from 'mdbreact';
 import React from 'react';
 
 import { useQuery } from 'react-query';
 
 import { getnextLaunch, getTopThreeUpcmomingLaunches } from '../api/launchAPI';
+import Heading from '../presentational/heading/Heading';
 import FluidImageCardWithLink from '../presentational/imagecard/FluidImageCardWithLink';
 import ListGroup from '../presentational/listgroup/ListGroup';
 
@@ -27,13 +28,13 @@ const LandingPage = () => {
         <MDBContainer fluid>
             <MDBRow className='mb-3'>
                 <MDBCol lg='4' md='4' sm='12' xs='12'>
-                    <MDBTypography className='text-center' tag='h4' variant="h4-responsive">Upcoming Launches</MDBTypography>
+                    <Heading headerTag='h4' headingText='Upcoming Launches' />
                     <Loader status={upcomingStatus}>
                         <ListGroup isDepth data={getFormattedTopThreeUpcomingList(upcomingLaunches)} link='/upcoming' />
                     </Loader>
                 </MDBCol>
                 <MDBCol lg='4' md='4' sm='12' xs='12'>
-                    <MDBTypography className='text-center' tag='h4' variant="h4-responsive">Today In history</MDBTypography>
+                    <Heading headerTag='h4' headingText='Today In history' />
                     {/* <Loader isLoading={upcomingisLoading}>
                         <ListGroup isDepth data={getFormattedTopThreeUpcomingList(upcomingLaunches)} />
                     </Loader> */}
@@ -47,7 +48,7 @@ const LandingPage = () => {
             </MDBRow>
             <MDBRow>
                 <MDBCol size='12'>
-                    <MDBTypography className='text-center' tag='h4' variant="h4-responsive">Image of the day (APOD)</MDBTypography>
+                    <Heading headerTag='h4' headingText='Image of the day (APOD)' />
                     <FluidImageCardWithLink url='https://apod.nasa.gov/apod/image/2103/NGC1499_Akar_3296.jpg' />
                 </MDBCol>
             </MDBRow>

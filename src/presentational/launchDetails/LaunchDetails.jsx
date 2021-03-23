@@ -6,16 +6,18 @@ import LaunchCounter from '../../containers/launchCounter/LaunchCounter';
 import { getFullFormattedDateTime } from '../../utils/dateTimeUtil';
 import { getColorByLaunchStatus } from '../../utils/launchUtil';
 
-import { MDBBadge, MDBCol, MDBMask, MDBTypography, MDBView } from 'mdbreact';
+import { MDBBadge, MDBCol, MDBContainer, MDBIcon, MDBMask, MDBRow, MDBTypography, MDBView } from 'mdbreact';
 
 import styles from './launchDetails.module.css';
+import AgencyThumbnail from '../agency/AgencyThumbnail';
 
 const LaunchDetails = ({ launchInfo }) => {
 
     if (launchInfo === null || launchInfo === undefined) {
         return <NoData />
     }
-    const { net: launchdate, name, status, image } = launchInfo;
+    const { net: launchdate, name, status, image, launch_service_provider, pad } = launchInfo;
+    const { location, name: launchPadName } = pad;
     const { year, month, day, hour, minutes, seconds } = getFullFormattedDateTime(launchdate);
 
     return (<>
@@ -30,11 +32,21 @@ const LaunchDetails = ({ launchInfo }) => {
                     <p className='my-3'>
                         Launch date: {month} {day} {year}, {hour}:{minutes}:{seconds}
                     </p>
-                    <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge style={{ color: 'black !important' }} color={getColorByLaunchStatus(status.abbrev)}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
-                    {/* <a href={image} rel="noreferrer" target='_blank' className="btn btn-outline-light mb-1">View Full image</a> */}
+                    <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge color={getColorByLaunchStatus(status.abbrev)}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
+                    <p className='my-3'>
+                        <MDBIcon icon="map-marker-alt" /> {' '} {launchPadName}, {location.name}
+                    </p>
                 </MDBCol>
             </MDBMask>
         </MDBView>
+        <MDBContainer fluid>
+            <MDBRow className='mt-3'>
+                <MDBCol lg='3' md='4' sm='12'>
+                    <MDBTypography className='text-center' tag='h5' variant="h5-responsive">Launch Provider</MDBTypography>
+                    <AgencyThumbnail agencyInfo={launch_service_provider} />
+                </MDBCol>
+            </MDBRow>
+        </MDBContainer>
     </>)
 }
 
