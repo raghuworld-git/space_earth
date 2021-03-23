@@ -31,7 +31,7 @@ const LaunchDetails = ({ launchInfo }) => {
                         Launch date: {month} {day} {year}, {hour}:{minutes}:{seconds}
                     </p>
                     <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge style={{ color: 'black !important' }} color={getColorByLaunchStatus(status.abbrev)}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
-                    <a href={image} rel="noreferrer" target='_blank' className="btn btn-outline-light mb-1">View Full image</a>
+                    {/* <a href={image} rel="noreferrer" target='_blank' className="btn btn-outline-light mb-1">View Full image</a> */}
                 </MDBCol>
             </MDBMask>
         </MDBView>
