@@ -3,9 +3,9 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
 import Loader from '../presentational/Loader';
+import LaunchDetails from '../presentational/launchDetails/LaunchDetails';
 
 import { getLaunchById } from '../api/launchAPI';
-import NextLaunchJumbo from '../presentational/nextlaunchJumbo/NextLaunchJumbo';
 
 const LaunchContainer = () => {
 
@@ -14,7 +14,8 @@ const LaunchContainer = () => {
     return (
         <>
             <Loader status={status}>
-                <NextLaunchJumbo launchInfo={data} jumboHeader='Launch is at' />
+                {/* <NextLaunchJumbo launchInfo={data} jumboHeader='Launch is at' /> */}
+                <LaunchDetails launchInfo={data} />
             </Loader>
         </>
     )

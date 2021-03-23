@@ -1,0 +1,12 @@
+.imagesize{
+    width: 100% !important;
+    height: 600px !important;
+    object-fit: cover !important;
+}
+
+@media (max-width: 576px) { 
+
+    .imagesize{
+        height: 400px !important;
+    }
+ }
