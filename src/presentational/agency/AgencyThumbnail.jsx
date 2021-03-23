@@ -1,4 +1,4 @@
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle } from 'mdbreact';
 import React from 'react'
 import { Link } from 'react-router-dom';
 
