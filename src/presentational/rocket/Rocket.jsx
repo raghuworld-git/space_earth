@@ -8,7 +8,7 @@ import URL from '../URL';
 const Rocket = ({ rocket }) => {
     // console.log(rocket);
     const { configuration } = rocket;
-    const { full_name, image_url, diameter, length, wiki_url, description, min_stage, max_stage, gto_capacity, leo_capacity, launch_mass, successful_launches, pending_launches, to_thrust, manufacturer } = configuration;
+    const { full_name, image_url, diameter, length, wiki_url, description, min_stage, max_stage, gto_capacity, leo_capacity, launch_mass, to_thrust, manufacturer } = configuration;
     return (
         <MDBCard>
             <MDBCardBody>
@@ -52,10 +52,10 @@ const Rocket = ({ rocket }) => {
                                     <td>Manufacturer :</td>
                                     <td><Link style={{ textDecoration: 'underline' }} to={`/agency/${manufacturer?.id}`}> {manufacturer?.name} ({manufacturer?.country_code})</Link></td>
                                 </tr>
-                                <tr className='table-active'>
+                                {/* <tr className='table-active'>
                                     <td>Success launches : {successful_launches}</td>
                                     <td>Pending launches : {pending_launches} </td>
-                                </tr>
+                                </tr> */}
                                 <tr>
                                     <td colSpan='2' className='text-center'>
                                         <URL url={wiki_url} type='wiki' />

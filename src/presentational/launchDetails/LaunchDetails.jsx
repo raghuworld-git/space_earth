@@ -62,13 +62,12 @@ const LaunchDetails = ({ launchInfo }) => {
                 </MDBCol>
             </MDBRow>
             <MDBRow className='mt-3'>
-                <MDBCol lg='6' md='6' xl='6' sm='12'>
+                <MDBCol lg='8' md='8' xl='8' sm='12'>
                     <Heading headingText='Rocket info' headerTag='h5' />
                     <Rocket rocket={rocket} />
                 </MDBCol>
-                <MDBCol lg='6' md='6' xl='6' sm='12'>
+                <MDBCol lg='4' md='4' xl='4' sm='12'>
                     <Heading headingText='Updates' headerTag='h5' />
-
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
