@@ -4,7 +4,7 @@ import NoData from '../nodata/NoData';
 import LaunchCounter from '../../containers/launchCounter/LaunchCounter';
 
 import { getFullFormattedDateTime } from '../../utils/dateTimeUtil';
-import { getColorByLaunchStatus } from '../../utils/launchUtil';
+import { getColorByLaunchStatus, getYoutubeEmbedUrlByWatchURL } from '../../utils/launchUtil';
 
 import { MDBBadge, MDBCol, MDBContainer, MDBIcon, MDBMask, MDBRow, MDBTypography, MDBView } from 'mdbreact';
 
@@ -13,14 +13,15 @@ import Heading from '../heading/Heading';
 import YoutubeStream from '../youtube/YoutubeStream';
 import { Link } from 'react-router-dom';
 import Rocket from '../rocket/Rocket';
+import LaunchUpdates from '../launchUpdates/LaunchUpdates';
 
 
 const LaunchDetails = ({ launchInfo }) => {
 
-    if (launchInfo === null || launchInfo === undefined) {
+    if (launchInfo === null || launchInfo === undefined || launchInfo.results.length <= 0) {
         return <NoData />
     }
-    const { net: launchdate, name, status, image, launch_service_provider, pad, vidURLs, rocket } = launchInfo.results[0];
+    const { net: launchdate, name, status, image, launch_service_provider, pad, vidURLs, rocket, updates, webcast_live } = launchInfo.results[0];
     const { location, name: launchPadName } = pad;
     const { name: agencyName, country_code: agencyCountryCode, id: agencyId } = launch_service_provider;
     const { year, month, day, hour, minutes, seconds } = getFullFormattedDateTime(launchdate);
@@ -53,21 +54,22 @@ const LaunchDetails = ({ launchInfo }) => {
                     <MDBTypography className='text-center' tag='h5' variant="h5-responsive">Launch Provider</MDBTypography>
                     <AgencyThumbnail agencyInfo={launch_service_provider} />
                 </MDBCol> */}
-                <MDBCol lg='9' md='9' xl='9' sm='12'>
-                    <Heading headingText='Watch live Stream' headerTag='h5' />
-                    <YoutubeStream url={vidURLs.length > 0 ? vidURLs[0].url : 'https://www.youtube.com/embed/a15czI9B91c'} />
+                <MDBCol lg='8' md='8' xl='8' sm='12'>
+                    <Heading headingText={`Watch ${webcast_live ? 'live stream' : 'recorded video'} `} headerTag='h5' />
+                    <YoutubeStream url={vidURLs.length > 0 ? getYoutubeEmbedUrlByWatchURL(vidURLs[0].url) : null} />
                 </MDBCol>
-                <MDBCol lg='3' md='3' xl='3'>
-                    {/* For ads */}
+                <MDBCol lg='4' md='4' xl='4' sm='12'>
+                    <Heading headingText='Updates' headerTag='h5' />
+                    <LaunchUpdates launchUpdates={updates} />
                 </MDBCol>
             </MDBRow>
-            <MDBRow className='mt-3'>
-                <MDBCol lg='8' md='8' xl='8' sm='12'>
+            <MDBRow className='mt-1'>
+                <MDBCol lg='8' md='8' xl='8' sm='12' className='mb-3'>
                     <Heading headingText='Rocket info' headerTag='h5' />
                     <Rocket rocket={rocket} />
                 </MDBCol>
                 <MDBCol lg='4' md='4' xl='4' sm='12'>
-                    <Heading headingText='Updates' headerTag='h5' />
+                    <Heading headingText='Related News' headerTag='h5' />
                 </MDBCol>
             </MDBRow>
         </MDBContainer>

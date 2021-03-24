@@ -7,6 +7,7 @@ import LaunchContainer from './LaunchContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+import AgencyContainer from './AgencyContainer';
 
 
 
@@ -26,6 +27,9 @@ const App = () => {
             </Route>
             <Route exact path='/launch/:slug'>
               <LaunchContainer />
+            </Route>
+            <Route exact path='/agency/:id'>
+              <AgencyContainer />
             </Route>
             <Route>
               Page is under construction. Please come back later.

@@ -33,3 +33,8 @@ export const getFormattedTopThreeUpcomingList = (data) => {
     return dataArray;
 
 }
+
+export const getYoutubeEmbedUrlByWatchURL = (watchURL = '') => {
+    let split = watchURL.split("=");
+    return `https://www.youtube.com/embed/${split[1]}`;
+}

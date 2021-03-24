@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 
 import { getnextLaunch, getTopThreeUpcmomingLaunches } from '../api/launchAPI';
 import Heading from '../presentational/heading/Heading';
-import FluidImageCardWithLink from '../presentational/imagecard/FluidImageCardWithLink';
+//import FluidImageCardWithLink from '../presentational/imagecard/FluidImageCardWithLink';
 import ListGroup from '../presentational/listgroup/ListGroup';
 
 import NextLaunchJumbo from '../presentational/nextlaunchJumbo/NextLaunchJumbo';
@@ -46,12 +46,12 @@ const LandingPage = () => {
                     </Loader>
                 </MDBCol> */}
             </MDBRow>
-            <MDBRow>
+            {/* <MDBRow>
                 <MDBCol size='12'>
                     <Heading headerTag='h4' headingText='Image of the day (APOD)' />
                     <FluidImageCardWithLink url='https://apod.nasa.gov/apod/image/2103/NGC1499_Akar_3296.jpg' />
                 </MDBCol>
-            </MDBRow>
+            </MDBRow> */}
         </MDBContainer>
     </>)
 }
