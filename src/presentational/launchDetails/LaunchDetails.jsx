@@ -13,6 +13,7 @@ import Heading from '../heading/Heading';
 import YoutubeStream from '../youtube/YoutubeStream';
 import { Link } from 'react-router-dom';
 import Rocket from '../rocket/Rocket';
+import GoogleMap from '../../containers/googleMap/GoogleMap';
 
 const LaunchDetails = ({ launchInfo }) => {
 
@@ -57,7 +58,7 @@ const LaunchDetails = ({ launchInfo }) => {
                     <YoutubeStream url={vidURLs.length > 0 ? vidURLs[0].url : 'https://www.youtube.com/embed/a15czI9B91c'} />
                 </MDBCol>
                 <MDBCol lg='3' md='3' xl='3'>
-                    For ads
+                    {/* For ads */}
                 </MDBCol>
             </MDBRow>
             <MDBRow className='mt-3'>
