@@ -18,7 +18,7 @@ const Rocket = ({ rocket }) => {
                         <img src={image_url} alt={full_name} style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }} className="img-fluid rounded mb-0" />
                     </MDBCol>
                     <MDBCol lg='6' sm='12' md='12'>
-                        <MDBTable small responsive>
+                        <MDBTable small responsive bordered>
                             <MDBTableBody>
                                 <tr>
                                     <td>Diameter :</td>
