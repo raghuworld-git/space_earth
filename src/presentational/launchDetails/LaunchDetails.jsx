@@ -13,7 +13,7 @@ import Heading from '../heading/Heading';
 import YoutubeStream from '../youtube/YoutubeStream';
 import { Link } from 'react-router-dom';
 import Rocket from '../rocket/Rocket';
-import GoogleMap from '../../containers/googleMap/GoogleMap';
+
 
 const LaunchDetails = ({ launchInfo }) => {
 
