@@ -14,7 +14,7 @@ const NextLaunchJumbo = ({ imgUrl, launchInfo, jumboHeader, showDetailsButton = 
     if (launchInfo === null || launchInfo === undefined) {
         return <NoData />
     }
-    const { net: launchdate, id, name, status, image } = launchInfo;
+    const { net: launchdate, name, status, image, slug } = launchInfo;
     const { year, month, day, hour, minutes, seconds } = getFullFormattedDateTime(launchdate);
     const customIMG = !imgUrl ? image : imgUrl;
     return (
@@ -34,7 +34,7 @@ const NextLaunchJumbo = ({ imgUrl, launchInfo, jumboHeader, showDetailsButton = 
                                 </p>
                                 <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge style={{ color: 'black !important' }} color={getColorByLaunchStatus(status.abbrev)}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
                                 {showDetailsButton &&
-                                    <NavLink to={`/launch/${id}`} className="btn btn-outline-light mb-1" >
+                                    <NavLink to={`/launch/${slug}`} className="btn btn-outline-light mb-1" >
                                         <MDBIcon icon="clone" className="mr-2"></MDBIcon> Details
                             </NavLink>
                                 }

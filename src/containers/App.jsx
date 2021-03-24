@@ -24,7 +24,7 @@ const App = () => {
             <Route exact path='/'>
               <LandingPage />
             </Route>
-            <Route exact path='/launch/:id'>
+            <Route exact path='/launch/:slug'>
               <LaunchContainer />
             </Route>
             <Route>

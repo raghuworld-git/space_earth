@@ -5,17 +5,17 @@ import { useParams } from 'react-router-dom';
 import Loader from '../presentational/Loader';
 import LaunchDetails from '../presentational/launchDetails/LaunchDetails';
 
-import { getLaunchById } from '../api/launchAPI';
+import { getLaunchBySlug } from '../api/launchAPI';
 
 const LaunchContainer = () => {
 
-    const { id } = useParams();
-    const { data, status } = useQuery(['getLaunchById', id], () => getLaunchById(id));
+    const { slug } = useParams();
+    const { data, isLoading, isError, isSuccess } = useQuery(['getLaunchBySlug', slug], () => getLaunchBySlug(slug));
+
     return (
         <>
-            <Loader status={status}>
-                {/* <NextLaunchJumbo launchInfo={data} jumboHeader='Launch is at' /> */}
-                <LaunchDetails launchInfo={data} />
+            <Loader iserror={isError} isloading={isLoading} isSuccess={isSuccess}>
+                < LaunchDetails launchInfo={data} />
             </Loader>
         </>
     )

@@ -20,7 +20,7 @@ const LaunchDetails = ({ launchInfo }) => {
     if (launchInfo === null || launchInfo === undefined) {
         return <NoData />
     }
-    const { net: launchdate, name, status, image, launch_service_provider, pad, vidURLs, rocket } = launchInfo;
+    const { net: launchdate, name, status, image, launch_service_provider, pad, vidURLs, rocket } = launchInfo.results[0];
     const { location, name: launchPadName } = pad;
     const { name: agencyName, country_code: agencyCountryCode, id: agencyId } = launch_service_provider;
     const { year, month, day, hour, minutes, seconds } = getFullFormattedDateTime(launchdate);

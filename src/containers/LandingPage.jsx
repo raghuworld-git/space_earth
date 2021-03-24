@@ -14,14 +14,14 @@ import Loader from './../presentational/Loader'
 
 const LandingPage = () => {
 
-    const { data: nextlaunchInfo, status: nextLaunchStatus } = useQuery('getnextLaunch', getnextLaunch);
-    const { status: upcomingStatus, data: upcomingLaunches } = useQuery('getTopThreeUpcmomingLaunches', getTopThreeUpcmomingLaunches);
+    const { data: nextlaunchInfo, isLoading: nlIsLoading, isError: nlIsError, isSuccess: nlIsSuccess } = useQuery('getnextLaunch', getnextLaunch);
+    const { isLoading: ulIsloading, isError: ulIsError, isSuccess: ulIsSuccess, data: upcomingLaunches } = useQuery('getTopThreeUpcmomingLaunches', getTopThreeUpcmomingLaunches);
 
 
     const imgUrl = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1352&q=80';
 
     return (<>
-        <Loader status={nextLaunchStatus}>
+        <Loader isloading={nlIsLoading} iserror={nlIsError} isSuccess={nlIsSuccess}>
             <NextLaunchJumbo launchInfo={nextlaunchInfo} imgUrl={imgUrl} showDetailsButton jumboHeader='Next launch is in' />
         </Loader>
 
@@ -29,7 +29,7 @@ const LandingPage = () => {
             <MDBRow className='mb-3'>
                 <MDBCol lg='4' md='4' sm='12' xs='12'>
                     <Heading headerTag='h4' headingText='Upcoming Launches' />
-                    <Loader status={upcomingStatus}>
+                    <Loader isloading={ulIsloading} iserror={ulIsError} isSuccess={ulIsSuccess}>
                         <ListGroup isDepth data={getFormattedTopThreeUpcomingList(upcomingLaunches)} link='/upcoming' />
                     </Loader>
                 </MDBCol>

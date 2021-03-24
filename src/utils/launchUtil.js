@@ -25,10 +25,10 @@ export const getFormattedTopThreeUpcomingList = (data) => {
 
     if (!data) return []
     let dataArray = data.map((item) => {
-        const { name, net, id } = item;
+        const { name, net, id, slug } = item;
         const { year, month, day, hour, minutes, seconds } = getFullFormattedDateTime(net);
         const fromattedNet = `${month} ${day} ${year}, ${hour}: ${minutes}: ${seconds}`;
-        return { name, id, subname: fromattedNet, link: `/launch/${id}` }
+        return { name, id, subname: fromattedNet, link: `/launch/${slug}` }
     })
     return dataArray;
 

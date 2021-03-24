@@ -1,9 +1,9 @@
 import { MDBCol, MDBRow } from 'mdbreact';
 import React from 'react';
 
-const Loader = ({ status = 'success', children }) => {
+const Loader = ({ isloading, iserror, isSuccess, children }) => {
 
-    if (status === 'loading') {
+    if (isloading) {
         return (<MDBRow className='my-3'>
             <MDBCol size='12' className='text-center'>
                 <div className="spinner-border" role="status">
@@ -11,12 +11,12 @@ const Loader = ({ status = 'success', children }) => {
                 </div>
             </MDBCol>
         </MDBRow>)
-    } else if (status === 'error') {
+    } else if (iserror) {
         return <MDBCol size='12' className='text-center'>
             An error occured while fetching data. Please try later
         </MDBCol>
     }
-    else if (status === 'success') {
+    else if (isSuccess) {
         return children;
     }
 }

@@ -14,7 +14,7 @@ const Rocket = ({ rocket }) => {
             <MDBCardBody>
                 <Heading headingText={full_name} headerTag='h5' />
                 <MDBRow>
-                    <MDBCol lg='6' sm='12' md='12'>
+                    <MDBCol lg='6' sm='12' md='12' className='mb-2'>
                         <img src={image_url} alt={full_name} style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }} className="img-fluid rounded mb-0" />
                     </MDBCol>
                     <MDBCol lg='6' sm='12' md='12'>
