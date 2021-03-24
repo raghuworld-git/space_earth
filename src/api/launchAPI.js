@@ -27,7 +27,7 @@ export const getTopThreeUpcmomingLaunches = async () => {
 
 export const getLaunchById = async (id) => {
     try {
-        const res = await launchAPI.get(`/${id}/`);
+        const res = await launchAPI.get(`/${id}/?mode=detailed`);
         return res.data
     }
     catch (error) {

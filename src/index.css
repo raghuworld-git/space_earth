@@ -2,3 +2,8 @@ html,body {
   margin: 0;
   font-family: 'Rubik', sans-serif !important;
 }
+
+.containerCustom{
+  padding-left: 100px !important;
+  padding-right: 100px !important
+}
