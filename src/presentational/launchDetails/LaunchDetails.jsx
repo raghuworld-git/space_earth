@@ -6,19 +6,20 @@ import LaunchCounter from '../../containers/launchCounter/LaunchCounter';
 import { getFullFormattedDateTime } from '../../utils/dateTimeUtil';
 import { getColorByLaunchStatus } from '../../utils/launchUtil';
 
-import { MDBBadge, MDBCard, MDBCardBody, MDBCol, MDBContainer, MDBIcon, MDBMask, MDBRow, MDBTypography, MDBView } from 'mdbreact';
+import { MDBBadge, MDBCol, MDBContainer, MDBIcon, MDBMask, MDBRow, MDBTypography, MDBView } from 'mdbreact';
 
 import styles from './launchDetails.module.css';
 import Heading from '../heading/Heading';
 import YoutubeStream from '../youtube/YoutubeStream';
 import { Link } from 'react-router-dom';
+import Rocket from '../rocket/Rocket';
 
 const LaunchDetails = ({ launchInfo }) => {
 
     if (launchInfo === null || launchInfo === undefined) {
         return <NoData />
     }
-    const { net: launchdate, name, status, image, launch_service_provider, pad, vidURLs } = launchInfo;
+    const { net: launchdate, name, status, image, launch_service_provider, pad, vidURLs, rocket } = launchInfo;
     const { location, name: launchPadName } = pad;
     const { name: agencyName, country_code: agencyCountryCode, id: agencyId } = launch_service_provider;
     const { year, month, day, hour, minutes, seconds } = getFullFormattedDateTime(launchdate);
@@ -60,13 +61,13 @@ const LaunchDetails = ({ launchInfo }) => {
                 </MDBCol>
             </MDBRow>
             <MDBRow className='mt-3'>
-                <MDBCol lg='12' md='12' xl='12' sm='12'>
+                <MDBCol lg='6' md='6' xl='6' sm='12'>
                     <Heading headingText='Rocket info' headerTag='h5' />
-                    <MDBCard>
-                        <MDBCardBody>
+                    <Rocket rocket={rocket} />
+                </MDBCol>
+                <MDBCol lg='6' md='6' xl='6' sm='12'>
+                    <Heading headingText='Updates' headerTag='h5' />
 
-                        </MDBCardBody>
-                    </MDBCard>
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
