@@ -13,7 +13,7 @@ const Rocket = ({ rocket }) => {
                 <Heading headingText={full_name} headerTag='h4' />
                 <MDBRow>
                     <MDBCol lg='6' sm='12' md='12'>
-                        <img src={image_url} alt={full_name} style={{ width: '100%', height: '400px', objectFit: 'contain' }} className="img-fluid rounded mb-0" />
+                        <img src={image_url} alt={full_name} style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }} className="img-fluid rounded mb-0" />
                     </MDBCol>
                     <MDBCol lg='6' sm='12' md='12'>
                         <MDBTable>
