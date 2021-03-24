@@ -25,7 +25,7 @@ const LandingPage = () => {
             <NextLaunchJumbo launchInfo={nextlaunchInfo} imgUrl={imgUrl} showDetailsButton jumboHeader='Next launch is in' />
         </Loader>
 
-        <MDBContainer fluid className='containerCustom'>
+        <MDBContainer fluid>
             <MDBRow className='mb-3'>
                 <MDBCol lg='4' md='4' sm='12' xs='12'>
                     <Heading headerTag='h4' headingText='Upcoming Launches' />

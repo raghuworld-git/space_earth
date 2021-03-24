@@ -27,6 +27,9 @@ const App = () => {
             <Route exact path='/launch/:id'>
               <LaunchContainer />
             </Route>
+            <Route>
+              Page is under construction. Please come back later.
+            </Route>
           </Switch>
         </QueryClientProvider>
       </BrowserRouter>

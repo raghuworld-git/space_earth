@@ -45,7 +45,7 @@ const LaunchDetails = ({ launchInfo }) => {
                 </MDBCol>
             </MDBMask>
         </MDBView>
-        <MDBContainer fluid className='containerCustom'>
+        <MDBContainer fluid>
             <MDBRow className='mt-3'>
                 {/* <MDBCol lg='3' md='3' xl='3' sm='12'>
                     <MDBTypography className='text-center' tag='h5' variant="h5-responsive">Launch Provider</MDBTypography>
