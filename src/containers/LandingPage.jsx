@@ -30,7 +30,7 @@ const LandingPage = () => {
                 <MDBCol lg='4' md='4' sm='12' xs='12'>
                     <Heading headerTag='h4' headingText='Upcoming Launches' />
                     <Loader isloading={ulIsloading} iserror={ulIsError} isSuccess={ulIsSuccess}>
-                        <ListGroup isDepth data={getFormattedTopThreeUpcomingList(upcomingLaunches)} link='/upcoming' />
+                        <ListGroup isDepth data={getFormattedTopThreeUpcomingList(upcomingLaunches)} link='/launches/upcoming' />
                     </Loader>
                 </MDBCol>
                 <MDBCol lg='4' md='4' sm='12' xs='12'>

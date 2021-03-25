@@ -31,6 +31,9 @@ const App = () => {
             <Route exact path='/agency/:id'>
               <AgencyContainer />
             </Route>
+            <Route exact path='/launches/:type'>
+              me me mind
+            </Route>
             <Route>
               Page is under construction. Please come back later.
             </Route>

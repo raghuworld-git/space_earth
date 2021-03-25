@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MDBCollapse, MDBContainer, MDBIcon, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBNavLink } from 'mdbreact';
+import { MDBCollapse, MDBContainer, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBIcon, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBNavLink } from 'mdbreact';
 
 const Header = ({ toggleCollapse, isOpen }) => {
 
@@ -14,6 +14,20 @@ const Header = ({ toggleCollapse, isOpen }) => {
                 <MDBNavbarToggler onClick={toggleCollapse} />
                 <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
                     <MDBNavbarNav left>
+                        <MDBNavItem>
+                            <MDBDropdown>
+                                <MDBDropdownToggle nav caret>
+                                    <div className="d-none d-md-inline">Launches</div>
+                                </MDBDropdownToggle>
+                                <MDBDropdownMenu className="dropdown-default">
+                                    <MDBDropdownItem href="/launches/upcoming">Upcoming</MDBDropdownItem>
+                                    <MDBDropdownItem href="/launches/previous">Previous</MDBDropdownItem>
+                                </MDBDropdownMenu>
+                            </MDBDropdown>
+                        </MDBNavItem>
+                        <MDBNavItem>
+                            <MDBNavLink to="/agencies">Agencies</MDBNavLink>
+                        </MDBNavItem>
                         {/* <MDBNavItem active>
                                 <MDBNavLink to="#!">Home</MDBNavLink>
                             </MDBNavItem> */}

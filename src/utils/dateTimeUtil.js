@@ -23,3 +23,8 @@ export const getFullFormattedDateTime = (dateTime, timezone = null) => {
     }
 
 }
+
+export const getCurrentDateTimeForFilterInUTCFormat = () => {
+    const curentDate = new Date();
+    return `${curentDate.getUTCFullYear()}-${numberWithZeroPrefix(curentDate.getUTCMonth() + 1)}-${numberWithZeroPrefix(curentDate.getUTCDate())}T${numberWithZeroPrefix(curentDate.getUTCHours())}:${numberWithZeroPrefix(curentDate.getUTCMinutes())}:00Z`;
+}

@@ -67,7 +67,7 @@ const Rocket = ({ rocket }) => {
                 </MDBRow>
                 <MDBRow>
                     <MDBCol>
-                        <p>
+                        <p className='text-center'>
                             <ReadMore text={description} cutoffLength='300' />
                         </p>
                     </MDBCol>
