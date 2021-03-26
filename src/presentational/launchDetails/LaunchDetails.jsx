@@ -40,7 +40,12 @@ const LaunchDetails = ({ launchInfo }) => {
                     <p className='my-3' style={{ fontSize: '20px' }}>
                         Launch date: {month} {day} {year}, {hour}:{minutes}:{seconds}
                     </p>
-                    <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge color={getColorByLaunchStatus(status.abbrev)[0]}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
+                    <MDBTypography tag='h5' variant="h5-responsive">
+                        <MDBBadge color={getColorByLaunchStatus(status.abbrev)[0]}>{status.name} ({status.abbrev})</MDBBadge>
+                    </MDBTypography>
+                    <MDBTypography tag='h5' variant="h5-responsive">
+                        <MDBBadge color='pink'>{rocket.spacecraft_stage ? 'Crewed' : 'Unmanned'}</MDBBadge>
+                    </MDBTypography>
                     <p className='my-3' style={{ fontSize: '20px' }}>
                         <MDBIcon icon="map-marker-alt" /> {' '} {launchPadName}, {location.name}
                     </p>

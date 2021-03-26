@@ -1,9 +1,9 @@
 import { MDBCol, MDBRow } from 'mdbreact';
 import React from 'react';
 
-const Loader = ({ isloading, iserror, isSuccess, children }) => {
+const Loader = ({ isloading, iserror, isSuccess, isFetching, children }) => {
 
-    if (isloading) {
+    if (isloading || isFetching) {
         return (<MDBRow className='my-3'>
             <MDBCol size='12' className='text-center'>
                 <div className="spinner-border text-light" role="status">

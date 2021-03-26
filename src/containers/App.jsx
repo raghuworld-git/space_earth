@@ -13,9 +13,13 @@ import LaunchesList from './LaunchesList';
 
 
 const App = () => {
-
-  const queryClient = new QueryClient();
-
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  })
 
   return (
     <>

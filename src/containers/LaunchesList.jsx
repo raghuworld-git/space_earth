@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 import LaunchCard from '../presentational/launchCard/LaunchCard';
@@ -15,7 +15,15 @@ const LaunchesList = () => {
 
     const { type } = useParams();
 
-    const { data, isLoading, isError, isSuccess } = useQuery([`${type === 'upcoming' ? 'getAllUpcomingLaunches' : 'getAllPreviousLaunches'}getAgencyById`, type], () => { return type === 'upcoming' ? getAllUpcomingLaunches() : getAllPreviousLaunches() });
+    const [isCrewedLaunch, setisCrewedLaunches] = useState(false);
+
+    const { data, isLoading, isError, isSuccess, isFetching, refetch } = useQuery([`${type === 'upcoming' ? 'getAllUpcomingLaunches' : 'getAllPreviousLaunches'}getAgencyById`, type], () => { return type === 'upcoming' ? getAllUpcomingLaunches(isCrewedLaunch) : getAllPreviousLaunches(isCrewedLaunch) });
+
+
+    useEffect(() => {
+        refetch()
+    }, [isCrewedLaunch, refetch]);
+
 
     const pageTitle = type === 'upcoming' ? 'Upcoming launches' : 'Previous launches';
     const renderCards = (data) => {
@@ -25,18 +33,27 @@ const LaunchesList = () => {
     }
 
     return (
-        <Loader isloading={isLoading} iserror={isError} isSuccess={isSuccess}>
-            <MDBContainer>
-                <MDBRow>
-                    <MDBCol>
-                        <Heading headingText={pageTitle} headerTag='h4' />
-                    </MDBCol>
-                </MDBRow>
+        <MDBContainer>
+            <MDBRow>
+                <MDBCol>
+                    <Heading headingText={pageTitle} headerTag='h4' />
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className='text-center my-3'>
+                <MDBCol style={{ color: 'white' }}>
+                    <div className="custom-control custom-checkbox">
+                        <input defaultChecked={isCrewedLaunch} type="checkbox" className="custom-control-input" id="crewedLaunchCheck" onChange={() => setisCrewedLaunches(!isCrewedLaunch)} />
+                        <label className="custom-control-label" htmlFor="crewedLaunchCheck">Crewed Launches ?</label>
+                    </div>
+                </MDBCol>
+            </MDBRow>
+            <Loader isloading={isLoading} iserror={isError} isSuccess={isSuccess} isFetching={isFetching}>
                 <MDBRow>
                     {data === null || data === undefined || data.length <= 0 ? <NoData /> : renderCards(data)}
                 </MDBRow>
-            </MDBContainer>
-        </Loader>
+
+            </Loader>
+        </MDBContainer>
     )
 }
 

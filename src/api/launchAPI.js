@@ -20,7 +20,7 @@ export const getnextLaunch = async () => {
 
 export const getTopThreeUpcmomingLaunches = async () => {
     try {
-        const resp = await upcomingLaunchAPI.get(`/?limit=4&offset=1}`);
+        const resp = await upcomingLaunchAPI.get(`/?limit=4`);
         return resp.data?.results;
     }
     catch (error) {
@@ -38,9 +38,10 @@ export const getLaunchBySlug = async (slug) => {
     }
 }
 
-export const getAllUpcomingLaunches = async () => {
+export const getAllUpcomingLaunches = async (isCrewedLaunch) => {
+    let isCrewedFilter = isCrewedLaunch ? '&is_crewed=true' : ''
     try {
-        const res = await upcomingLaunchAPI.get('/?limit=9');
+        const res = await upcomingLaunchAPI.get(`/?limit=9${isCrewedFilter}`);
         return res.data.results
     }
     catch (error) {
@@ -48,9 +49,10 @@ export const getAllUpcomingLaunches = async () => {
     }
 }
 
-export const getAllPreviousLaunches = async () => {
+export const getAllPreviousLaunches = async (isCrewedLaunch) => {
+    let isCrewedFilter = isCrewedLaunch ? '&is_crewed=true' : ''
     try {
-        const res = await previousLaunchAPI.get('/?limit=9');
+        const res = await previousLaunchAPI.get(`/?limit=9${isCrewedFilter}`);
         return res.data.results
     }
     catch (error) {

@@ -9,7 +9,7 @@ export const getFullFormattedDateTime = (dateTime, timezone = null) => {
 
 
         fullDate.year = momentDateTime.year();
-        fullDate.month = momentDateTime.format('MMMM');
+        fullDate.month = momentDateTime.format('MMMM').substring(0, 3);
         fullDate.day = numberWithZeroPrefix(momentDateTime.date());
         fullDate.hour = numberWithZeroPrefix(momentDateTime.hour());
         fullDate.minutes = numberWithZeroPrefix(momentDateTime.minute());

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { MDBCollapse, MDBContainer, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBIcon, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBNavLink } from 'mdbreact';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = ({ toggleCollapse, isOpen }) => {
 
@@ -9,8 +9,8 @@ const Header = ({ toggleCollapse, isOpen }) => {
 
         <MDBNavbar color="black" dark expand="md">
             <MDBContainer>
-                <MDBNavbarBrand>
-                    <strong className="white-text"></strong>
+                <MDBNavbarBrand href='/'>
+                    <strong className="white-text">SE</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={toggleCollapse} />
                 <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
@@ -21,8 +21,8 @@ const Header = ({ toggleCollapse, isOpen }) => {
                                     <div className="d-none d-md-inline">Launches</div>
                                 </MDBDropdownToggle>
                                 <MDBDropdownMenu className="dropdown-default">
-                                    <MDBDropdownItem><Link to="/launches/upcoming">Upcoming</Link> </MDBDropdownItem>
-                                    <MDBDropdownItem><Link to="/launches/previous">Previous</Link> </MDBDropdownItem>
+                                    <MDBDropdownItem><NavLink to="/launches/upcoming">Upcoming</NavLink> </MDBDropdownItem>
+                                    <MDBDropdownItem><NavLink to="/launches/previous">Previous</NavLink> </MDBDropdownItem>
                                 </MDBDropdownMenu>
                             </MDBDropdown>
                         </MDBNavItem>
