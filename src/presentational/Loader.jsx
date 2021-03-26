@@ -6,13 +6,13 @@ const Loader = ({ isloading, iserror, isSuccess, children }) => {
     if (isloading) {
         return (<MDBRow className='my-3'>
             <MDBCol size='12' className='text-center'>
-                <div className="spinner-border" role="status">
+                <div className="spinner-border text-light" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>
             </MDBCol>
         </MDBRow>)
     } else if (iserror) {
-        return <MDBCol size='12' className='text-center'>
+        return <MDBCol size='12' className='text-center' style={{ color: 'white' }}>
             An error occured while fetching data. Please try later
         </MDBCol>
     }

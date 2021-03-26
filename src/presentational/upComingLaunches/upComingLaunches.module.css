@@ -1,0 +1,21 @@
+/* .listgroupActive {
+    z-index: 2;
+    color: #fff;
+    background-color: black;
+    border-color:black;
+}
+
+.listgroupActive:hover{
+    color: #fff;
+} */
+
+
+.moreButtonColor{
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.moreButtonColor:hover{
+    background-color: #413e3e;
+    color: white;
+}

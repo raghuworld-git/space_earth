@@ -10,7 +10,7 @@ const Rocket = ({ rocket }) => {
     const { configuration } = rocket;
     const { full_name, image_url, diameter, length, wiki_url, description, min_stage, max_stage, gto_capacity, leo_capacity, launch_mass, to_thrust, manufacturer } = configuration;
     return (
-        <MDBCard>
+        <MDBCard className='commonGreyColor'>
             <MDBCardBody>
                 <Heading headingText={full_name} headerTag='h5' />
                 <MDBRow>
@@ -18,8 +18,8 @@ const Rocket = ({ rocket }) => {
                         <img src={image_url} alt={full_name} style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }} className="img-fluid rounded mb-0" />
                     </MDBCol>
                     <MDBCol lg='6' sm='12' md='12'>
-                        <MDBTable small responsive bordered>
-                            <MDBTableBody>
+                        <MDBTable small responsive >
+                            <MDBTableBody textWhite>
                                 <tr>
                                     <td>Diameter :</td>
                                     <td>{diameter} meters</td>
@@ -50,7 +50,7 @@ const Rocket = ({ rocket }) => {
                                 </tr>
                                 <tr>
                                     <td>Manufacturer :</td>
-                                    <td><Link style={{ textDecoration: 'underline' }} to={`/agency/${manufacturer?.id}`}> {manufacturer?.name} ({manufacturer?.country_code})</Link></td>
+                                    <td><Link style={{ textDecoration: 'underline', color: 'white' }} to={`/agency/${manufacturer?.id}`}> {manufacturer?.name} ({manufacturer?.country_code})</Link></td>
                                 </tr>
                                 {/* <tr className='table-active'>
                                     <td>Success launches : {successful_launches}</td>
@@ -67,7 +67,7 @@ const Rocket = ({ rocket }) => {
                 </MDBRow>
                 <MDBRow>
                     <MDBCol>
-                        <p className='text-center'>
+                        <p className='text-center mt-2'>
                             <ReadMore text={description} cutoffLength='300' />
                         </p>
                     </MDBCol>

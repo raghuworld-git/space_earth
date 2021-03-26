@@ -6,7 +6,7 @@ const LaunchUpdates = ({ launchUpdates }) => {
 
     let updateLoop = null;
     if (launchUpdates === null || launchUpdates === undefined || launchUpdates.length <= 0) {
-        updateLoop = (<MDBCard>
+        updateLoop = (<MDBCard className='commonGreyColor'>
             <MDBCardBody className='text-center'>
                 Watch this space for more launch updates..
             </MDBCardBody>
@@ -14,7 +14,7 @@ const LaunchUpdates = ({ launchUpdates }) => {
     } else {
 
         updateLoop = launchUpdates.map(({ id, comment, created_by, created_on, info_url, profile_image }) => {
-            return (<MDBCard key={id}>
+            return (<MDBCard key={id} className='commonGreyColor'>
                 <MDBCardBody >
 
                     <div className='float-left'>

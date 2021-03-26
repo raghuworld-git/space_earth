@@ -1,9 +1,16 @@
 html,body {
   margin: 0;
   font-family: 'Rubik', sans-serif !important;
+  background-color: black !important;
 }
 
 .containerCustom{
   padding-left: 100px !important;
   padding-right: 100px !important
 }
+
+.commonGreyColor{
+  background-color: #262626 !important;
+  color: white !important;
+}
+

@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 import { getnextLaunch, getTopThreeUpcmomingLaunches } from '../api/launchAPI';
 import Heading from '../presentational/heading/Heading';
 //import FluidImageCardWithLink from '../presentational/imagecard/FluidImageCardWithLink';
-import ListGroup from '../presentational/listgroup/ListGroup';
+import UpComingLaunches from '../presentational/upComingLaunches/UpComingLaunches';
 
 import NextLaunchJumbo from '../presentational/nextlaunchJumbo/NextLaunchJumbo';
 import { getFormattedTopThreeUpcomingList } from '../utils/launchUtil';
@@ -30,7 +30,7 @@ const LandingPage = () => {
                 <MDBCol lg='4' md='4' sm='12' xs='12'>
                     <Heading headerTag='h4' headingText='Upcoming Launches' />
                     <Loader isloading={ulIsloading} iserror={ulIsError} isSuccess={ulIsSuccess}>
-                        <ListGroup isDepth data={getFormattedTopThreeUpcomingList(upcomingLaunches)} link='/launches/upcoming' />
+                        <UpComingLaunches isDepth data={getFormattedTopThreeUpcomingList(upcomingLaunches)} link='/launches/upcoming' />
                     </Loader>
                 </MDBCol>
                 <MDBCol lg='4' md='4' sm='12' xs='12'>
