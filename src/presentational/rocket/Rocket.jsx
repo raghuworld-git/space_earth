@@ -5,6 +5,8 @@ import ReadMore from '../../containers/readMore/ReadMore';
 import Heading from '../heading/Heading';
 import URL from '../URL';
 
+import defaultImage from '../../assests/images/defaultImage.jpg';
+
 const Rocket = ({ rocket }) => {
     // console.log(rocket);
     const { configuration } = rocket;
@@ -15,7 +17,7 @@ const Rocket = ({ rocket }) => {
                 <Heading headingText={full_name} headerTag='h5' />
                 <MDBRow>
                     <MDBCol lg='6' sm='12' md='12' className='mb-2'>
-                        <img src={image_url} alt={full_name} style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }} className="img-fluid rounded mb-0" />
+                        <img src={!image_url ? defaultImage : image_url} alt={full_name} style={{ width: '100%', maxHeight: '400px', objectFit: 'contain' }} className="img-fluid rounded mb-0" />
                     </MDBCol>
                     <MDBCol lg='6' sm='12' md='12'>
                         <MDBTable small responsive >

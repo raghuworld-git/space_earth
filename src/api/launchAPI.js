@@ -5,6 +5,7 @@ import { baseSpacedevApiURL } from '../utils/apiUtil';
 
 const upcomingLaunchAPI = axios.create({ baseURL: `${baseSpacedevApiURL}/launch/upcoming` })
 const launchAPI = axios.create({ baseURL: `${baseSpacedevApiURL}/launch/` })
+const previousLaunchAPI = axios.create({ baseURL: `${baseSpacedevApiURL}/launch/previous` })
 
 export const getnextLaunch = async () => {
     try {
@@ -36,3 +37,24 @@ export const getLaunchBySlug = async (slug) => {
         throw error;
     }
 }
+
+export const getAllUpcomingLaunches = async () => {
+    try {
+        const res = await upcomingLaunchAPI.get('/?limit=9');
+        return res.data.results
+    }
+    catch (error) {
+        throw error;
+    }
+}
+
+export const getAllPreviousLaunches = async () => {
+    try {
+        const res = await previousLaunchAPI.get('/?limit=9');
+        return res.data.results
+    }
+    catch (error) {
+        throw error;
+    }
+}
+

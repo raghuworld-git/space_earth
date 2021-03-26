@@ -15,6 +15,8 @@ import { Link } from 'react-router-dom';
 import Rocket from '../rocket/Rocket';
 import LaunchUpdates from '../launchUpdates/LaunchUpdates';
 
+import defaultImage from '../../assests/images/defaultImage.jpg';
+
 
 const LaunchDetails = ({ launchInfo }) => {
 
@@ -28,7 +30,7 @@ const LaunchDetails = ({ launchInfo }) => {
 
     return (<>
         <MDBView className='z-depth-3'>
-            <img src={image} className={styles.imagesize} alt={name} />
+            <img src={!image ? defaultImage : image} className={styles.imagesize} alt={name} />
             <MDBMask className="flex-center text-white text-center" overlay="black-light"  >
                 <MDBCol className="py-5">
                     <MDBTypography className={`my-3 ${styles.h1responsive} `} tag='h1' variant="h1-responsive">
@@ -38,7 +40,7 @@ const LaunchDetails = ({ launchInfo }) => {
                     <p className='my-3' style={{ fontSize: '20px' }}>
                         Launch date: {month} {day} {year}, {hour}:{minutes}:{seconds}
                     </p>
-                    <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge color={getColorByLaunchStatus(status.abbrev)}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
+                    <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge color={getColorByLaunchStatus(status.abbrev)[0]}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
                     <p className='my-3' style={{ fontSize: '20px' }}>
                         <MDBIcon icon="map-marker-alt" /> {' '} {launchPadName}, {location.name}
                     </p>

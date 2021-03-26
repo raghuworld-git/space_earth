@@ -8,6 +8,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 import AgencyContainer from './AgencyContainer';
+import LaunchesList from './LaunchesList';
 
 
 
@@ -31,8 +32,8 @@ const App = () => {
             <Route exact path='/agency/:id'>
               <AgencyContainer />
             </Route>
-            <Route exact path='/launches/:type'>
-              me me mind
+            <Route exact path='/launches/:type(upcoming|previous)'>
+              <LaunchesList />
             </Route>
             <Route>
               Page is under construction. Please come back later.

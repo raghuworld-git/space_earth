@@ -1,0 +1,5 @@
+.launchCardImage{
+    width: 100% !important;
+    height:20rem ;
+    object-fit: cover !important;
+}
