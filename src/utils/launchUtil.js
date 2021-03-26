@@ -6,17 +6,17 @@ export const getColorByLaunchStatus = (launchStatusAbbr) => {
         case 'TBD':
         case 'TBC':
         case 'Hold':
-            return 'info'
+            return ['info', '#33b5e5']
         case 'Go':
         case 'Success':
-            return 'success'
+            return ['success', 'green']
         case 'Failure':
         case 'Partial Failure':
-            return 'danger';
+            return ['danger', 'red'];
         case 'In Flight':
-            return 'orange'
+            return ['orange', 'orange']
         default:
-            return 'default';
+            return ['default', 'white'];
     }
 
 }
@@ -25,10 +25,10 @@ export const getFormattedTopThreeUpcomingList = (data) => {
 
     if (!data) return []
     let dataArray = data.map((item) => {
-        const { name, net, id, slug } = item;
+        const { name, net, id, slug, status } = item;
         const { year, month, day, hour, minutes, seconds } = getFullFormattedDateTime(net);
         const fromattedNet = `${month} ${day} ${year}, ${hour}: ${minutes}: ${seconds}`;
-        return { name, id, subname: fromattedNet, link: `/launch/${slug}` }
+        return { name, id, status, subname: fromattedNet, link: `/launch/${slug}` }
     })
     return dataArray;
 

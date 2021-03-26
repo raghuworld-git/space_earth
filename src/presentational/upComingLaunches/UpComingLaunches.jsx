@@ -1,7 +1,7 @@
 import { MDBTypography } from 'mdbreact';
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import { getColorByLaunchStatus } from '../../utils/launchUtil';
 import styles from './upComingLaunches.module.css'
 
 const UpComingLaunches = ({ isDepth = false, link = null, data = [] }) => {
@@ -10,10 +10,11 @@ const UpComingLaunches = ({ isDepth = false, link = null, data = [] }) => {
             {
                 data.length > 0 ?
                     data.map((item) => {
-                        const { name, id, subname, link } = item;
+                        const { name, id, subname, link, status } = item;
                         return <Link key={id} className='list-group-item list-group-item-action commonGreyColor' to={link}>
                             <div className="d-flex w-100 justify-content-between">
                                 <MDBTypography tag='h6' variant="h6-responsive">{name}</MDBTypography>
+                                <span style={{ color: getColorByLaunchStatus(status?.abbrev)[1] }}>{status?.abbrev}</span>
                             </div>
                             <p className="mb-1">{subname}</p>
                         </Link>

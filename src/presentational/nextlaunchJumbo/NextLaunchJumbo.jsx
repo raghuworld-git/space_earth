@@ -32,7 +32,7 @@ const NextLaunchJumbo = ({ imgUrl, launchInfo, jumboHeader, showDetailsButton = 
                                 <p className='my-3'>
                                     Launch date: {month} {day} {year}, {hour}:{minutes}:{seconds}
                                 </p>
-                                <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge style={{ color: 'black !important' }} color={getColorByLaunchStatus(status.abbrev)}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
+                                <MDBTypography tag='h5' variant="h5-responsive"><MDBBadge style={{ color: 'black !important' }} color={getColorByLaunchStatus(status.abbrev)[0]}>{status.name} ({status.abbrev})</MDBBadge></MDBTypography>
                                 {showDetailsButton &&
                                     <NavLink to={`/launch/${slug}`} className="btn btn-outline-light mb-1" >
                                         <MDBIcon icon="clone" className="mr-2"></MDBIcon> Details

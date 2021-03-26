@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { MDBCollapse, MDBContainer, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBIcon, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNavItem, MDBNavLink } from 'mdbreact';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = ({ toggleCollapse, isOpen }) => {
 
@@ -20,13 +21,13 @@ const Header = ({ toggleCollapse, isOpen }) => {
                                     <div className="d-none d-md-inline">Launches</div>
                                 </MDBDropdownToggle>
                                 <MDBDropdownMenu className="dropdown-default">
-                                    <MDBDropdownItem href="/launches/upcoming">Upcoming</MDBDropdownItem>
-                                    <MDBDropdownItem href="/launches/previous">Previous</MDBDropdownItem>
+                                    <MDBDropdownItem><Link to="/launches/upcoming">Upcoming</Link> </MDBDropdownItem>
+                                    <MDBDropdownItem><Link to="/launches/previous">Previous</Link> </MDBDropdownItem>
                                 </MDBDropdownMenu>
                             </MDBDropdown>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <MDBNavLink to="/agencies">Agencies</MDBNavLink>
+                            <NavLink className='nav-link' to='/agencies'>Agencies</NavLink>
                         </MDBNavItem>
                         {/* <MDBNavItem active>
                                 <MDBNavLink to="#!">Home</MDBNavLink>
